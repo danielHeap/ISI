@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Projektowanie wyglądu strony WWW - Tekst</title>
+	<meta charset="utf-8">
+	<link rel="stylesheet" type="text/css" href="general.css"/>
+	<script src="jquery.min.js"></script>
+</head>
+<body>
+	<div id="zielony">
+		<div id="logo"><a href="index.html">Projektowanie wyglądu strony WWW</a></div>
+		<nav id="top-menu">
+			<ul>
+				<li><a class="active" href="tekst.html">Tekst</a></li>
+				<li><a href="tlo.html">Tło</a></li>
+				<li><a href="listy.html">Listy</a></li>
+				<li><a href="kontakt.html">Kontakt</a></li>
+			</ul>
+		</div>
+	</div>
+	<div id="zolty"/>
+		<nav id="main-menu">
+			<ul>
+			</ul>
+		</nav>
+	</div>
+	<div id="pomaranczowy">
+		<div id="content">
+			<section class="section-cart" id="section-1">
+				<h2>Kolorowanie tekstu</h2>
+				<div class="text-color">
+					<p>Tekst czerwony</p>
+					<p>Tekst zielony</p>
+					<p>Tekst czarny</p>
+					<p>Tekst żółty</p>
+				<div>
+			</section>
+			<section class="section-cart" id="section-2">
+				<h2>Położenie tekstu</h2>
+				<div class="text-align">
+					<p>Do lewej</p>
+					<p>Do prawej</p>
+					<p>Do środka</p>
+					<p>
+					Przykład justowania tekstu<br>
+					Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+					</p>
+				</div>
+			</section>
+			<section class="section-cart" id="section-3">
+				<h2>Rodziny czcionek</h2>
+				<h3>Serif</h3>
+				<div class="fonts">
+					Czcionki zakończone małą linia.
+					<h4>Times New Roman</h4>
+					<div style="font-family: Times New Roman">
+						Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+					</div>
+					<h4>Georgia</h4>
+					<div style="font-family: Georgia">
+						Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+					</div>
+				</div>
+				
+				<h3>Sans-serif</h3>
+				<div class="fonts">
+					Czcionki bez lini na końcu znaku.
+					<h4>Arial</h4>
+					<div style="font-family: Georgia">
+						Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+					</div>
+					<h4>Verdana</h4>
+					<div style="font-family: Georgia">
+						Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+					</div>
+				</div>
+				<h3>Monospace</h3>
+				<div class="fonts">
+					Każdy pojedyńczy znak ma taką samą szerokość
+					<h4>Georgia</h4>
+					<div style="font-family: Georgia">
+						Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+					</div>
+					<h4>Georgia</h4>
+					<div style="font-family: Georgia">
+						Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+					</div>
+				</div>
+			</section>
+			<section class="section-cart" id="section-4">
+				<h2>Wyróżnienia tekstu</h2>
+				<div class="bolding">
+					Przykład pogrubienia tekstu.
+				</div>
+				<div class="italic">
+					Przykład pochylenia tekstu.
+				</div>
+				<div class="oblique ">
+					Przykład tekstu ukośnego.
+				</div>
+			</section>	
+			<section class="section-cart" id="section-5">
+				<h2>Dekoracje tekstu</h2>
+				<div style="text-decoration: overline;">
+					Przykład nadkreślenia.
+				</div>
+				<div style="text-decoration: line-through;">
+					Przykład przekreślenia.
+				</div>
+				<div style="text-decoration: underline;">
+					Przykład podkreślenia.
+				</div>
+			</section>	
+		</div>
+	</div>	
+	<script>
+	$(document).ready(function(){
+		$("#zolty #main-menu ul").html('');
+		$( "#content .section-cart" ).each(function(  ) {
+			$("#zolty #main-menu ul").append('<li><a href="#" data-section="' + $( this ).attr("id") + '" title="' + $( this ).find("h2").html() + '">' + $( this ).find("h2").html() + '</a></li>');
+		});
+		$("#zolty #main-menu ul li:first-child a").addClass('active');
+		$("#zolty #main-menu ul li").on("click", function(){
+			var section = $(this).find("a").attr("data-section");
+			$("#zolty #main-menu ul li a").removeClass('active');
+			$(this).find('a').addClass('active');
+			$("#content .section-cart").hide();
+			$("#content #" + section).show();
+			console.log("#content #" + section);
+			return false;
+		});
+	});
+	</script>
+	<div id="footer">Zrobione z <span class="heart">❤</span> przez Daniel Dymiński i Norbert Gil</div>
+</body>
+</html>

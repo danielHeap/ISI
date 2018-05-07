@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Projektowanie wyglądu strony WWW - Listy</title>
+	<meta charset="utf-8">
+	<link rel="stylesheet" type="text/css" href="general.css"/>
+	<script src="jquery.min.js"></script>
+</head>
+<body>
+	<div id="zielony">
+		<div id="logo"><a href="index.html">Projektowanie wyglądu strony WWW</a></div>
+		<nav id="top-menu">
+			<ul>
+				<li><a href="tekst.html">Tekst</a></li>
+				<li><a href="tlo.html">Tło</a></li>
+				<li><a class="active" href="listy.html">Listy</a></li>
+				<li><a href="kontakt.html">Kontakt</a></li>
+			</ul>
+		</div>
+	</div>
+	<div id="zolty"/>
+		<nav id="main-menu">
+			<ul>
+			</ul>
+		</nav>
+	</div>
+	<div id="pomaranczowy">
+		<div id="content">
+			<section class="section-cart" id="section-1" data-title="Sekcja 2">
+				
+				<h2>Listy numerowane </h2>
+				<div class="list-enum">
+				<p>Małe alfabetyczne</p>
+					<ul>
+						<li>Element pierwszy</li>
+						<li>Element drugi</li>
+						<li>Element trzeci</li>
+					</ul>
+					<p>Duże rzymskie</p>
+					<ul>
+						<li>Element pierwszy</li>
+						<li>Element drugi</li>
+						<li>Element trzeci</li>
+					</ul>
+					<p>Arabskie</p>
+					<ul>
+						<li>Element pierwszy</li>
+						<li>Element drugi</li>
+						<li>Element trzeci</li>
+					</ul>
+				</div>
+			</section>
+			<section class="section-cart" id="section-2" data-title="Sekcja 2">
+				<h2>Listy nienumerowane</h2>
+				<div class="list-nonenum">
+					<p>Kwadraty</p>
+					<ul>
+						<li>Element pierwszy</li>
+						<li>Element drugi</li>
+						<li>Element trzeci</li>
+					</ul>
+					<p>Koła</p>
+					<ul>
+						<li>Element pierwszy</li>
+						<li>Element drugi</li>
+						<li>Element trzeci</li>
+					</ul>
+				</div>
+			</section>
+			<section class="section-cart" id="section-3" data-title="Sekcja 3">
+				<h2>Listy zagnieżdzone</h2>
+				<div class="list-enum">
+				<ul></ul>
+					<ul>
+						<li>Zagnieżdzenie
+							<ul style="list-style-type: square;">
+								<li>Element x</li>
+								<li>Element y</li>
+								<li>Element z</li>
+							</ul>
+						</li>
+						<li>Element drugi</li>
+						<li>Element trzeci</li>
+					</ul>
+				<div>
+			</section>
+		</div>
+	</div>
+	<script>
+	$(document).ready(function(){
+		$("#zolty #main-menu ul").html('');
+		$( "#content .section-cart" ).each(function(  ) {
+			$("#zolty #main-menu ul").append('<li><a href="#" data-section="' + $( this ).attr("id") + '" title="' + $( this ).find("h2").html() + '">' + $( this ).find("h2").html() + '</a></li>');
+		});
+		$("#zolty #main-menu ul li:first-child a").addClass('active');
+		$("#zolty #main-menu ul li").on("click", function(){
+			var section = $(this).find("a").attr("data-section");
+			$("#zolty #main-menu ul li a").removeClass('active');
+			$(this).find('a').addClass('active');
+			$("#content .section-cart").hide();
+			$("#content #" + section).show();
+			console.log("#content #" + section);
+			return false;
+		});
+	});
+	</script>
+	<div id="footer">Zrobione z <span class="heart">❤</span> przez Daniel Dymiński i Norbert Gil</div>
+</body>
+</html>
