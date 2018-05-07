@@ -1,11 +1,16 @@
 package Lab3;
 
 import java.io.IOException;
+
+import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+
+import services.ITemplatePage;
+import services.TemplatePage;
 
 /**
  * Servlet implementation class Main
@@ -14,12 +19,11 @@ import javax.servlet.http.HttpServletResponse;
 public class Main extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
-    /**
-     * @see HttpServlet#HttpServlet()
-     */
+	//private ITemplatePage templatePage;
+	
     public Main() {
         super();
-        // TODO Auto-generated constructor stub
+        //templatePage = new TemplatePage();
     }
 
 	/**
@@ -27,14 +31,8 @@ public class Main extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
-		response.setContentType("text/html");
-		response.getWriter().append("Served at: ").append(request.getContextPath());
-		response.getWriter().append("<form action='/Lab2/Main' method='post'>\r\n" + 
-				"  First name: <input type='v' name='fname'><br>\r\n" + 
-				"  Last name: <input type='text' name='lname'><br>\r\n" + 
-				"  <input type='submit' value='Submit'>\r\n" + 
-				"</form>"+"<span>chuj</span>");
-		
+		RequestDispatcher rd = request.getRequestDispatcher("/index.jsp"); 
+		rd.forward(request, response);
 	}
 
 	/**
@@ -42,12 +40,19 @@ public class Main extends HttpServlet {
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
+
+		response.setContentType("text/html; charset=UTF-8");	
 		String tmp = (String) request.getParameter("fname");
 		response.getWriter().append("Metoda post\n");
 		if(tmp.length()>0)
-		{
-			response.getWriter().append("Imiê to "+tmp);
+		{	
+			response.getWriter().append("ImiÄ™ to "+tmp);
+			response.getWriter().append("<br><button onclick='window.history.back();'>Go Back</button>");
 		}
+		RequestDispatcher rd = request.getRequestDispatcher("/input.jsp"); 
+		request.setAttribute("fname", tmp);
+		request.setAttribute("lname", request.getParameter("lname"));
+		rd.forward(request, response);
 	}
 
 }
