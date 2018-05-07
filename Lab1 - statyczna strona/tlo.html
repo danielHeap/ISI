@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Projektowanie wyglądu strony WWW - Tło</title>
+	<meta charset="utf-8">
+	<link rel="stylesheet" type="text/css" href="general.css"/>
+	<script src="jquery.min.js"></script>
+</head>
+<body>
+	<div id="zielony">
+		<div id="logo"><a href="index.html">Projektowanie wyglądu strony WWW</a></div>
+		<nav id="top-menu">
+			<ul>
+				<li><a href="tekst.html">Tekst</a></li>
+				<li><a class="active" href="tlo.html">Tło</a></li>
+				<li><a href="listy.html">Listy</a></li>
+				<li><a href="kontakt.html">Kontakt</a></li>
+			</ul>
+		</div>
+	</div>
+	<div id="zolty"/>
+		<nav id="main-menu">
+			</ul>
+			<ul>
+			</ul>
+		</nav>
+	</div>
+	<div id="pomaranczowy">
+		<div id="content">
+			<section class="section-cart" id="section-1">
+				<h2>Kolor tła</h2>
+					<div id="bg-col">
+						background-color: lightblue;
+					</div>
+					<div id="bg-col2">
+						background-color: rgb(255,255,0);
+					</div>
+					<div id="bg-col3">
+						background-color: rgba(255,0,0,0.5);
+					</div>
+			</section>
+			<section class="section-cart" id="section-2">
+				<h2>Obraz w tle</h2>
+				<div class="wrapper-img">
+				<div class="bg-image">    
+					background-image: url("paper.jpg"); <br>
+					background-repeat: no-repeat;
+					</div>
+				<div class="bg-image">    
+					background-image: url("paper.jpg"); <br>
+					background-repeat: no-repeat;
+				</div>
+				<div class="bg-image">    
+					background-image: url("img_tree.png"); <br>
+					background-repeat: no-repeat;<br>
+					background-position: right top;<br>
+				</div>
+				</div>
+
+			</section>
+			<section class="section-cart" id="section-clip">
+				<h2>Własność Clip</h2>
+				
+				<div >
+				<p>Tło jest za obramówki</p>
+				</div>
+
+				<div>
+				<p>Tło jest w środku obramówki</p>
+				</div>
+
+				<div>
+				<p>Tło jest rozciągnięte do krawędzi treści.</p>
+				</div>
+
+			</section>
+			<section class="section-cart" id="roundedCorners">
+				<h2>Zaokroglanie rogów</h2>
+				<div>
+				
+				</div>
+				<div>
+				
+				</div>
+				<div>
+				
+				</div>
+			</section>
+		</div>
+	</div>	
+	<script>
+	$(document).ready(function(){
+		$("#zolty #main-menu ul").html('');
+		$( "#content .section-cart" ).each(function(  ) {
+			$("#zolty #main-menu ul").append('<li><a href="#" data-section="' + $( this ).attr("id") + '" title="' + $( this ).find("h2").html() + '">' + $( this ).find("h2").html() + '</a></li>');
+		});
+		$("#zolty #main-menu ul li:first-child a").addClass('active');
+		$("#zolty #main-menu ul li").on("click", function(){
+			var section = $(this).find("a").attr("data-section");
+			$("#zolty #main-menu ul li a").removeClass('active');
+			$(this).find('a').addClass('active');
+			$("#content .section-cart").hide();
+			$("#content #" + section).show();
+			console.log("#content #" + section);
+			return false;
+		});
+	});
+	</script>
+	<div id="footer">Zrobione z <span class="heart">❤</span> przez Daniel Dymiński i Norbert Gil</div>
+</body>
+</html>

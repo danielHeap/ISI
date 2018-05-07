@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Projektowanie wyglądu strony WWW - Kontakt</title>
+	<meta charset="utf-8">
+	<link rel="stylesheet" type="text/css" href="general.css"/>
+	<script src="jquery.min.js"></script>    
+    <script src="https://maps.google.com/maps/api/js?sensor=false" type="text/javascript"></script>
+</head>
+<body onLoad="mapaStart(); mapa2Start();">
+	<div id="zielony">
+		<div id="logo"><a href="index.html">Projektowanie wyglądu strony WWW</a></div>
+		<nav id="top-menu">
+			<ul>
+				<li><a href="tekst.html">Tekst</a></li>
+				<li><a href="tlo.html">Tło</a></li>
+				<li><a href="listy.html">Listy</a></li>
+				<li><a class="active" href="kontakt.html">Kontakt</a></li>
+			</ul>
+		</div>
+	</div>
+	<div id="zolty"/><nav id="main-menu"><ul></ul></nav></div>
+	<div id="pomaranczowy">
+		<div id="content">
+			<section class="section-cart" id="section-1" data-title="Sekcja 1">
+				<h2>Daniel Dymiński</h2>
+				<div class="flex-column">
+					<div class="contact-col-left">
+						<p>e-mail: <a href="mailto:dyminskid@gmail.com">dyminskid@gmail.com</a></p>
+						<h3>Formularz kontaktowy</h3>
+						<form id="contact-form" class="form" action="#" method="post">
+							<input type="text" class="input" name="subject" placeholder="Temat wiadomości">
+							<textarea name="content" class="input"></textarea>
+							<input type="text" class="input" name="signature" placeholder="Podpis">
+							<input type="hidden" name="email" value="dyminskid@gmail.com">
+							<input type="submit" class="button" name="submit">
+							<p class="mail-info">ok</p>
+						</form>
+					</div> 
+					<div id="mapka" class="map">   
+					<!-- tu będzie mapa -->   
+					</div>   
+				</div>
+			</section>
+			<section class="section-cart" id="section-2" data-title="Norbert Gil">
+				<h2>Norbert Gil</h2>
+				<div class="flex-column">
+					<div class="contact-col-left">
+						<p>e-mail: <a href="mailto:yelonek@icloud.com">norbertgil@o2.pl</a></p>
+						<h3>Formularz kontaktowy</h3>
+						<form id="contact-form-2" class="form" action="#" method="post">
+							<input type="text" class="input" name="subject" placeholder="Temat wiadomości">
+							<textarea name="content" class="input"></textarea>
+							<input type="text" class="input" name="signature" placeholder="Podpis">
+							<input type="hidden" name="email" value="norbertgil@o2.pl">
+							<input type="submit" class="button" name="submit">
+							<p class="mail-info">oki</p>
+						</form>
+					</div>
+					<div id="mapka2" class="map">   
+					<!-- tu będzie mapa -->   
+					</div>   
+				</div>
+				<form action="#" method="post">
+				</form>
+			</section>
+		</div>
+	</div>	
+	<script type="text/javascript">   
+		function mapaStart()   
+		{   
+			var wspolrzedne = new google.maps.LatLng(50.878778, 20.639956);
+			var uluru = {lat: 50.878778, lng: 20.639956};
+
+			var opcjeMapy = {
+			  zoom: 17,
+			  center: wspolrzedne,
+			  mapTypeId: google.maps.MapTypeId.ROADMAP
+			};
+			var mapa = new google.maps.Map(document.getElementById("mapka"), opcjeMapy); 
+			var marker = new google.maps.Marker({
+			  position: uluru,
+			  map: mapa
+			});
+		}   
+		function mapa2Start()   
+		{   
+			var wspolrzedne = new google.maps.LatLng(50.878983, 20.640354);
+			var uluru = {lat: 50.878983, lng: 20.640354};
+
+			var opcjeMapy = {
+			  zoom: 17,
+			  center: wspolrzedne,
+			  mapTypeId: google.maps.MapTypeId.ROADMAP
+			};
+			var mapa = new google.maps.Map(document.getElementById("mapka2"), opcjeMapy); 
+			var marker = new google.maps.Marker({
+			  position: uluru,
+			  map: mapa
+			});
+		}   
+	</script>  
+	<script>
+	$(document).ready(function(){
+		$("#zolty #main-menu ul").html('');
+		$( "#content .section-cart" ).each(function(  ) {
+			$("#zolty #main-menu ul").append('<li><a href="#" data-section="' + $( this ).attr("id") + '" title="' + $( this ).find("h2").html() + '">' + $( this ).find("h2").html() + '</a></li>');
+		});
+		$("#zolty #main-menu ul li:first-child a").addClass('active');
+		$("#zolty #main-menu ul li").on("click", function(){
+			var section = $(this).find("a").attr("data-section");
+			$("#zolty #main-menu ul li a").removeClass('active');
+			$(this).find('a').addClass('active');
+			$("#content .section-cart").hide();
+			$("#content #" + section).show();
+			console.log("#content #" + section);
+			$('.form .mail-info').fadeOut();
+			return false;
+		});
+		
+		$('.form .button[type="submit"').on("click", function(){
+			var subject = $(this).parent().find('.input[name="subject"]');
+			var content =  $(this).parent().find('.input[name="content"]');
+			var signature =  $(this).parent().find('.input[name="signature"]');
+			var email =  $(this).parent().find('input[name="email"]');
+			console.log(email);
+			$(this).parent().find('.mail-info').fadeIn().delay(10000).fadeOut();
+			$(this).parent().find('.mail-info').html('<b>Wiadomość została wysłana!</b></br><br>Tytuł wiadomości: ' + subject.val() + '</br>Treść wiadomości: ' + content.val() + '</br>Podpis: ' + signature.val() + '</br></br>Wiadomość została wysłana do <b>' + email.val() + '</b>');
+			subject.val("");
+			content.val("");
+			signature.val("");
+			return false;
+		});
+	});
+	</script>
+	<div id="footer">Zrobione z <span class="heart">❤</span> przez Daniel Dymiński i Norbert Gil</div>
+</body>
+</html>
