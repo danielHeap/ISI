@@ -3,7 +3,7 @@
 <html lang="pl">
 <head>
 <!-- Required meta tags -->
-<meta charset="charset=windows-1250"">
+<meta charset="charset=UTF-8">
 <meta name="viewport"
 	content="width=device-width, initial-scale=1, shrink-to-fit=no">
 

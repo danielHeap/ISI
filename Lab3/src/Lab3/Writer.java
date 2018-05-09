@@ -9,33 +9,27 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-
 /**
- * Servlet implementation class Main
+ * Servlet implementation class Writer
  */
-@WebServlet("/")
-public class Main extends HttpServlet {
+@WebServlet("/Writer")
+public class Writer extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
-	//private ITemplatePage templatePage;
-	
-    public Main() {
+    /**
+     * @see HttpServlet#HttpServlet()
+     */
+    public Writer() {
         super();
-        //templatePage = new TemplatePage();
+        // TODO Auto-generated constructor stub
     }
 
 	/**
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub		
-		String value ="dsadsa";
-		//RequestDispatcher rd = request.getRequestDispatcher("/index.jsp");
-		//request.setAttribute("redirected", value);
-		
-		RequestDispatcher rd = getServletContext().getRequestDispatcher("/index.jsp?redirected="+true);
-				
-		rd.forward(request, response);
+		// TODO Auto-generated method stub
+		response.getWriter().append("Served at: ").append(request.getContextPath());
 	}
 
 	/**
@@ -52,10 +46,6 @@ public class Main extends HttpServlet {
 			response.getWriter().append("Imię to "+tmp);
 			response.getWriter().append("<br><button onclick='window.history.back();'>Go Back</button>");
 		}
-		RequestDispatcher rd = request.getRequestDispatcher("/output.jsp"); 
-		request.setAttribute("fname", tmp);
-		request.setAttribute("lname", request.getParameter("lname"));
-		rd.forward(request, response);
 	}
 
 }
