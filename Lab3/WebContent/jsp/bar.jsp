@@ -1,4 +1,4 @@
-
+﻿
 <nav class="navbar navbar-dark navbar-inverse bg-primary ">
 
 	<ul class="navbar-nav mr-auto">
@@ -8,6 +8,12 @@
 		<li class="nav-item"><a class="nav-link" href="/lab3/input.jsp">Input</a>
 		
 		<li class="nav-item"><a class="nav-link" href="/lab3/main">Servlet Main </a></li>
+		
+		<li class="nav-item"><a class="nav-link" href="/lab3/writer">Servlet Writer </a></li>
+				
+		<li class="nav-item"><a class="nav-link" href="/lab3/ImageDownload">Pobierz obraz </a></li>
+				
+		<li class="nav-item"><a class="nav-link" href="lab3/BinaryData">Pokaż obraz </a></li>
 		</li>
 	</ul>
 
