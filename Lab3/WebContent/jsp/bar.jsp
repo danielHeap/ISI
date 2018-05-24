@@ -13,7 +13,7 @@
 				
 		<li class="nav-item"><a class="nav-link" href="/lab3/ImageDownload">Pobierz obraz </a></li>
 				
-		<li class="nav-item"><a class="nav-link" href="lab3/BinaryData">Pokaż obraz </a></li>
+		<li class="nav-item"><a class="nav-link" href="/lab3/BinaryData">Pokaż obraz </a></li>
 		</li>
 	</ul>
 

@@ -38,18 +38,6 @@ public class BinaryData extends HttpServlet {
 		FIS.close();
 		return(content);
     }
-    /*
-	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
-		byte [] buffer = download("d://dev/obrazy/broken bag.png");
-		response.setContentType("image/png");
-		response.setContentLength(buffer.length);
-		response.addHeader("Content-Disposition", "attachment;filename=obrazek.png");
-		OutputStream OS = response.getOutputStream();
-		OS.write(buffer);
-		OS.flush();
-				
-	}*/
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
 		byte [] buffer = download("d://dev/obrazy/broken bag.png");
@@ -60,10 +48,6 @@ public class BinaryData extends HttpServlet {
 		out.write(buffer,0,buffer.length);
 		out.close();   
 	}
-
-	/**
-	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
-	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
 		doGet(request, response);
