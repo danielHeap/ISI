@@ -13,33 +13,37 @@
 <body>
 	<div class="container">
 		<div class="row">
-			<div class="col-sm-3 left-side">
+			<div class="col-sm-3 left-side ">
 				<%@include file="jsp/bar.jsp"%>
+
 			</div>
 			<div class="col-sm-9  body-content">
-				<h2>Main</h2>
+
+				<h2>Writer</h2>
 				<div class="card">
-					<div class="card-header">Przykłady odebrania formularza
-						metodą GET.</div>
+					<div class="card-header">Odebrane dane przez servlet Writer i przekierowane do pliku jsp.</div>
 					<div class="card-body">
 						<div class="input-group mb-3">
 							<div class="input-group-prepend">
-								<span class="input-group-text" id="basic-addon1">Imię</span>
+								<span class="input-group-text" id="basic-addon1">Miasto</span>
 							</div>
-							<input type="text" class="form-control" placeholder="Imię"
+							<input type="text" class="form-control" placeholder="City"
 								aria-label="Username" aria-describedby="basic-addon1"
 								value='<%out.println(request.getParameter("fname"));%>'>
 						</div>
 						<div class="input-group mb-3">
 							<div class="input-group-prepend">
-								<span class="input-group-text" id="basic-addon1">Nazwisko</span>
+								<span class="input-group-text" id="basic-addon1">Ulica</span>
 							</div>
-							<input type="text" class="form-control" placeholder="Imię"
+							<input type="text" class="form-control" placeholder="Street"
 								aria-label="Username" aria-describedby="basic-addon1"
 								value='<%out.println(request.getParameter("lname"));%>'>
 						</div>
+
 					</div>
 				</div>
+
+
 			</div>
 		</div>
 	</div>

@@ -13,11 +13,14 @@
 <body>
 	<div class="container">
 		<div class="row">
-			<div class="col-sm-3 left-side">
+			<div class="col-sm-3  left-side">
 				<%@include file="jsp/bar.jsp"%>
 
 			</div>
-			<div class="col-sm-9  body-content"></div>
+			<div class="col-sm-9  body-content">
+			<h2>Pokaż obraz</h2>
+				<img src="/lab3/BinaryData" />
+			</div>
 		</div>
 	</div>
 
